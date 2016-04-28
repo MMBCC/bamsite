@@ -1,0 +1,47 @@
+<h1>Listing Photos</h1>
+
+<table class ="catalog">
+<% @photos.each do |photo| %>
+
+<tr>
+   <td> 
+   <div class="image">
+        <%= link_to (image_tag photo.image_url, :style => "height:100px"), item %>
+   </div>
+   </td>
+    
+   <td>   
+       <div class="user">
+        <%= photo.user %>
+      </div>  
+
+      <div class ="event">
+         <%= photo.event %>
+      </div>   
+  
+      <div class ="photo.description">
+         <%= photo.description %>
+      </div>
+      
+      <div class ="photo.price">
+         <%= photo.price %>
+      </div>
+      
+      <div class ="photo.image_ref">
+        <%= photo.image_ref %>
+      </div>
+      
+      <div class ="links">
+        <%= link_to 'Show', photo %>
+        <%= link_to 'Edit', edit_photo_path(photo) %>
+        <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %>      </div>
+      
+    </td>
+    <% end %>
+ </tr> 
+</table>
+
+<br>
+
+<%= link_to 'New Photo', new_photo_path %>
+<p id="notice"><%= notice %></p>

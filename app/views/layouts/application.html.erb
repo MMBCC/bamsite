@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+ <head>
+  <title>BAM Photography</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat|Ubuntu:400,400italic,700|Titillium+Web:400,400italic,700|Open+Sans:400,400italic,700,800' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag  'normalize', media: 'all', 'data-turbolinks-track' => true %>           
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <script  src="https://jqueryjs.googlecode.com/files/jquery-1.3.2.min.js"></script>
+ </head>
+ 
+ 
+<body>
+  
+    <header>
+      <a href="home.html" id="logo">
+        <img src="/assets/bampict/BAM_logogrey.png" alt="mainpicture">
+      </a>
+       <a href="/users/sign_up" align="right"><h3>Register</h3></a> 
+	   <a href="/users/sign_in" align="right"><h3>Log In</h3></a>
+    </header>
+    
+     <nav class="center">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+	        <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="client.html">Your Photos</li>
+        </ul>
+      </nav>
+<body>  
+<p class="notice"></p><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<%= yield %>
+<% if user_signed_in? %>
+<div>Signed in as... <%= current_user.email %> (<%= link_to 'Sign out', destroy_user_session_path, :method => :delete
+%>)</div>
+
+<% else %>
+<%= link_to '', new_user_registration_path %> <%= link_to '', new_user_session_path %>
+<% end %>
+
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+ <div id="wrapper">
+
+       <div class="footerinfo">
+          <li><p id="tooltip1"><a href="/site/about.html">About Us<span>We specialize in newborn & children photography, maternity and family photo sesion is also within our area of expertise.</span></a></p></li>
+          <li><p id="tooltip1"><a href="https://www.google.com/maps/place/National+College+of+Ireland,+Mayor+Street+Lower,+International+Financial+Services+Centre,+Dublin+1,+Ireland/@53.348729,-6.243568,15z/data=!4m2!3m1!1s0x48670e8d1bdaf2ed:0x20fe35903d91c026?hl=en">Location<span>We are located at the National College of Ireland in Dublin.</span></a></p></li>
+          <li><p id="tooltip1"><a href="contact.html">Contact Us<span>Send us an email</span></a></p></li>
+       </div>
+    	<br><br>
+	
+      <footer>
+        <a href="https://www.twitter.com/mmbcc"><img src="/assets/bampict/twitter-wrap.png" alt="Twitter Logo" class="social-icon"></a>
+        <a href="https://www.facebook.com/maria.kohlmann2"><img src="/assets/bampict/facebook-wrap.png" alt="Facebook Logo" class="social-icon"></a>
+        <div class="copyrights">&copy; 2016 BAM Photographers</div>
+      </footer>
+  </div>
+    
+<%= yield %>
+
+</body>
+</html>
+
+
+

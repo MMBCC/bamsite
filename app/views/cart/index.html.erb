@@ -1,0 +1,108 @@
+<h1>Your Cart</h1>
+<% if @cart.empty? %>
+    <p>Your Cart is empty.</p>
+<% end %>
+
+<% total = 0 %>
+
+
+<table class="cart">
+    <tr>
+        <td class="legend"></td>
+        <td class="legend">Item</td>
+        <td class="legend">Price</td>
+        <td class="legend">Qty</td>
+        <td class="legend">Total</td>
+    </tr>
+<% @cart.each do | id, quantity | %>
+ <% item = Item.find_by_id(id) %>
+    <tr>
+       <td>
+        <div class="image">
+            <%= link_to (image_tag item.image_url, :style => "height:40px"), item %>
+        </div>
+      </td>
+      
+      <td class="title"><%= link_to item.title, item %></td>
+      <td class="price"><%= number_to_currency(item.price) %></td>
+      <td class="quantity"><%= quantity %><br /></td>
+      <td class="price">
+      <%= number_to_currency(quantity * item.price, :unit => "£") %>
+   </td>
+      <td><a href="/cart/remove/<%= item.id %>">Remove from Cart</a></td>
+    </tr>
+    <% total += quantity * item.price %>
+<% end %>
+    
+    <tr>
+        <td colspan="4">
+        <div class="total">Total:</div>
+        </td>
+        <td>
+        <div class="price"><%= number_to_currency(total, :unit => "€") %></div>
+        </td>
+    </tr>
+
+</table>
+<p>
+    <%= link_to 'Continue Shopping', :controller => :items %>
+
+
+    <%= link_to 'Clear Cart', :controller => "cart", :action => "clearCart" %>
+
+    
+     <%=link_to 'Check Out', :controller => "cart", :action => "createOrder" %>
+
+</p>
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_xclick">
+<input type="hidden" name="business" value="pmkohlmann@gmail.com">
+<input type="hidden" name="lc" value="US">
+<input type="hidden" name="item_name" value="Prints">
+<input type="hidden" name="item_number" value="1">
+<input type="hidden" name="button_subtype" value="services">
+<input type="hidden" name="no_note" value="0">
+<input type="hidden" name="currency_code" value="EUR">
+<input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
+<table>
+<tr><td><input type="hidden" name="on0" value="Prints">Prints</td></tr><tr><td><select name="os0">
+	<option value="6 x 4 Print">6 x 4 Print €5.00 EUR</option>
+	<option value="8 x 5 Print">8 x 5 Print €10.00 EUR</option>
+	<option value="10 x 8 Print">10 x 8 Print €15.00 EUR</option>
+</select> </td></tr>
+<tr><td><input type="hidden" name="on1" value="Frame">Frame</td></tr><tr><td><select name="os1">
+	<option value="6 x 4 Frame">6 x 4 Frame €5.00 EUR</option>
+	<option value="8 x 5 Frame">8 x 5 Frame €10.00 EUR</option>
+	<option value="10 x 8 Frame">10 x 8 Frame €15.00 EUR</option>
+</select> </td></tr>
+</table>
+<input type="hidden" name="currency_code" value="EUR">
+<input type="hidden" name="option_select0" value="6 x 4 Print">
+<input type="hidden" name="option_amount0" value="5.00">
+<input type="hidden" name="option_select1" value="8 x 5 Print">
+<input type="hidden" name="option_amount1" value="10.00">
+<input type="hidden" name="option_select2" value="10 x 8 Print">
+<input type="hidden" name="option_amount2" value="15.00">
+<input type="hidden" name="option_index" value="0">
+
+<input type="hidden" name="currency_code" value="EUR">
+<input type="hidden" name="option_select0" value="6 x 4 Frame">
+<input type="hidden" name="option_amount0" value="5.00">
+<input type="hidden" name="option_select1" value="8 x 5 Frame">
+<input type="hidden" name="option_amount1" value="10.00">
+<input type="hidden" name="option_select2" value="10 x 8 Frame">
+<input type="hidden" name="option_amount2" value="15.00">
+<input type="hidden" name="option_index" value="0">
+<br>
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+    
+    
+    
+    
+</body>
+</html>

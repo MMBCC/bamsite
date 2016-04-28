@@ -1,0 +1,457 @@
+/**********************
+GENERAL
+**********************/
+
+body {
+  font-family: 'Open Sans', sans-serif;
+
+}
+
+#wrapper {
+  max-width: 80%; 
+  margin: 0 auto;
+  padding: 0 1%;
+
+}
+
+a {
+  text-decoration: none; 
+              }
+
+img {
+  max-width: 100%;
+}
+
+
+
+/**********************
+HEADING
+**********************/
+
+header {
+  float: left;
+  margin: 40px 0 5px 0;
+  padding: 5px 0 0 0;
+  width: 100%;
+}
+
+#logo {
+  max-width: 15%;
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/****
+  h1 {
+  font-family: 'Montserrat', sans-serif;
+  margin: 15px 0;
+  font-size: 1.75em;
+  font-weight: normal;
+  line-height: 0.8em;
+}
+
+h2 {
+  font-size: 0.75em;
+  margin: -5px 0 0;
+  font-weight: normal;
+}
+***/
+
+
+/**********************
+NAVIGATION
+**********************/
+
+.center {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+}
+
+nav {
+    margin: auto;
+    width: 10%;
+    padding: 8px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0 10px;
+  padding: 0;
+}
+
+nav li {
+  margin: auto;
+  display: inline-block;
+}
+
+nav a {
+  font-weight: 600;
+  padding: 1px 10px;
+}
+
+
+
+/**********************
+FOOTER
+**********************/
+
+footer {
+  font-size: 0.75em;
+  text-align: right;
+  clear: both;
+  padding-top: 0px;
+  color:#696969;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+}
+
+
+.footerinfo {
+  display: inline-block;
+  margin: auto;
+  width: 100%;
+  padding: 1px;
+  font-size: 0.8em;
+  text-align: left;
+  clear: both;
+  padding-top: 0px;
+  color: #696969;
+}
+
+.footerinfo li {
+  margin: auto;
+  width: 15%;
+  text-align: center;
+  display: inline-block;
+  padding-left: 180px;
+  padding-right: 0;
+  padding-bottom: 25px;
+}
+
+.footerinfo1 li {
+  float: left;
+  display: block;
+  margin: auto;
+  width: 26%;
+  padding: 1px;
+  font-size: 0.8em;
+  color:#696969;
+}
+
+#contact_footer {
+  float: right;
+  margin-right: 50px;
+}
+
+
+#tooltip1 { position: relative; }
+
+#tooltip1 a span { display: none;}
+
+#tooltip1 a:hover span { display: block; 
+  position: absolute; 
+  width: 200px; 
+  background-color: #FFE4E1; 
+  height: auto; 
+  left: 50px; 
+  top: -10px; 
+  color: #696969; 
+  padding: 0 5px;
+  
+}
+
+
+
+
+/**********************
+PAGE: PORTFOLILO
+**********************/
+
+div.img {
+    margin: 2px;
+    float: left;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 30px;
+    margin-bottom: 260px;
+    width: 32%;
+}	
+
+div.img:hover {
+	background-color: #FFE4E1;
+	width: 31%;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 20px;
+    text-align: center;
+}
+
+#gallery {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#gallery li {
+  float: left;
+  width: 45%;
+  margin: 2.5%;
+  background-color: #FFE4E1;
+  color: #bdc3c7;
+}
+
+#gallery li a p {
+  margin: 0;
+  padding: 5%;
+  font-size: 0.75em;
+  color: #bdc3c7;
+}
+
+
+
+/**********************
+PAGE: ABOUT
+**********************/
+.profile-photo {
+  display: block;
+  max-width: 25%;
+  margin: 0 auto 30px;
+  padding-left: 150px;
+}
+
+
+
+/**********************
+PAGE: CONTACT
+**********************/
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9em;
+}
+
+.contact-info a {
+  display: block;
+  min-height: 20px;
+  background-repeat: no-repeat;
+  background-size: 20px 20px;
+  padding: 0 0 0 30px;
+  margin: 0 0 10px;
+}
+
+.contact-info li.phone a {
+    background-image: url('../img/phone.png');
+}
+
+.contact-info li.mail a {
+    background-image: url('../img/mail.png');
+}
+
+.contact-info li.twitter a {
+    background-image: url('../img/twitter.png');
+}
+
+
+
+/**********************
+COLORS
+**********************/
+
+/* site body */
+
+body {
+  background-color: #ccc;
+  color: #999;
+}
+
+/* light pink header */
+
+header {
+  background: #FFE4E1;
+}
+
+/* nav background on mobile */
+
+nav {
+  background: #FFE4E1;
+}
+
+
+/* links */
+
+a {
+  color: #696969;
+}
+
+p1 {
+  text-decoration: underline;
+}
+
+
+
+/* nav link */
+
+nav a, nav a:visited {
+  color: #FFE4E1;
+}
+
+/* selected nav link */
+
+nav a.selected, nav a:hover {
+  color: #696969;
+}
+
+
+/*responsive css*/
+
+@media screen and (min-width: 480px) {
+  
+
+ /***********************
+  TWO COLUMN LAYOUT
+ *************************/
+  
+  #primary {
+    width: 50%;
+    float: left;
+  }
+  
+  #secondary {
+    width: 40%;
+    float: right;
+  }
+  
+  
+   /***********************
+  ALL PAGES: Signed In As... position
+ *************************/
+
+   div.signin {
+	  margin: -60px;
+    padding: 15px;
+    text-align: right;
+    font-size: 0.8em;
+    width: 100%;
+}
+  
+   /***********************
+  PAGE: HOME
+ *************************/
+ 
+/**sliding gallery replaced with mainimage**/
+
+ div.mainimage {
+	  margin: 2px;
+    width: 100%;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 50px;
+}	
+  
+  div.mainimage img {
+    width: 100%;
+    height: auto;
+}
+
+  div.desc {
+    padding: 15px;
+    text-align: center;
+}  
+  
+    
+  #gallery li:nth-child(4n) {
+    clear: left;
+  }
+  
+    /***********************
+  PAGE: ABOUT
+ *************************/
+  
+  .profile-photo {
+    float: left;
+    margin: -40px 99% 8px 0;
+  }
+  
+  p {
+    margin: 2px;
+    float: right;
+    width: 45%;
+    padding: 41px 0 0 0;
+    color:#696969;
+    text-align: justify;
+  }
+  
+  .copyrights {
+    margin: 2px;
+    float: right;
+    width: 20%;
+    padding: 0 0 0 0;
+  }
+
+}
+
+@media screen and (min-width: 660px) {
+  
+    /***********************
+  HEADER
+ *************************/
+  
+  nav {
+    background: none;
+    float: right;
+    font-size: 1.125em;
+    margin-right: 5%;
+    text-align: center;
+    width: 45%;
+  }
+  
+  
+  #logo {
+    margin: auto;
+    padding: 10px;
+    float: left;
+    margin-left: 42%;
+    text-align: left;
+    width: 10%;
+  }
+  
+  h2 {
+    font-size: 0.825em;
+    margin-bottom: 10px;
+  }
+  
+  h1 {
+    font-size: 2.5em
+  }
+  
+  header {
+    margin-bottom: 30px;
+  }
+  
+
+}
+
+
+
+
+
+
+
+
+
+
+

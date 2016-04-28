@@ -1,0 +1,84 @@
+<html>
+    
+<h1>Site#register</h1>
+<p>Find me in app/views/site/register.html.erb</p>
+<head>
+    <title>Register</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+</head>
+     <header>
+      <a href="register.html" id="logo">
+        <img src="/assets/bampict/BAM_logogrey.png" alt="mainpicture">
+      </a>
+      <a href="/site/register.html" align="right"><h3>Register</h3></a> 
+	  <a href="/site/login.html"align="right"><h3>Log In</h3></a>
+    </header>
+<center>
+    <body>
+        
+    <div id ="wrapper"></div>
+    
+    <nav class="center">
+        <ul>
+          <li><a href="home.html">Home</a></li>
+          <li><a href="/site/portfolio.html">Portfolio</a></li>
+		  <li><a href="/site/about.html">About</a></li>
+          <li><a href="/site/contact.html">Contact</a></li>
+        </ul>
+     </nav>
+
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+
+}
+</script>	 
+<form name="myForm" action="demo_form.asp"
+onsubmit="return validateForm()" method="post">
+
+		<table width = "450px" align="center">
+		<h3 align = "center">Register <h3>
+			<tr>
+				<td>First Name: * </td>
+				<td><input name = "fname" type = "text" size = "35" value ="" required /></td><br>
+			</tr>	
+			<br>
+			<tr>
+				<td>Last Name: * </td>
+				<td><input name = "lname" type = "text" size = "35" value ="" required /></td><br>
+			</tr>	
+			<br>
+			<tr>
+				<td>Address: *</td>
+				<td><input name = "address1" type = "text" size = "35" value ="" required /></td><br>
+			</tr>
+			<tr>	
+				<td></td>
+				<td><input name = "address2" type = "text" size = "35" value ="" required /></td>
+			</tr>	
+			<br>
+			<tr>
+				<td>Tel No: *</td>
+				<td><input name = "telno" type = "text" size = "35" required /></td>
+			</tr>
+			<br>
+			<tr>	
+				<td>Email: *</td>
+				<td><input name = "email" type = "text" size = "35" required /></td>
+			</tr>
+			
+		</table>
+		<h3 align="center">Please complete all fields with *</h3>
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+

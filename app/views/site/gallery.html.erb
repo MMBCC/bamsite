@@ -1,0 +1,125 @@
+<head>
+ <link href='https://fonts.googleapis.com/css?family=Montserrat|Ubuntu:400,400italic,700|Titillium+Web:400,400italic,700|Open+Sans:400,400italic,700,800' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="stepcarousel.js"></script>
+	 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<style>
+.stepcarousel{
+position: relative; /*leave this value alone*/
+overflow: scroll; /*leave this value alone*/
+width: 1000px; /*Width of Carousel Viewer itself*/
+height: 400px; /*Height should enough to fit largest content's height*/
+-webkit-box-sizing: border-box; /* set box model so container width and height value includes any padding/border defined */
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+.stepcarousel .belt{
+position: absolute; /*leave this value alone*/
+left: 0;
+top: 0;
+}
+
+.stepcarousel .panel{
+float: left; /*leave this value alone*/
+overflow: hidden; /*clip content that go outside dimensions of holding panel DIV*/
+margin: 10px; /*margin around each panel*/
+width: 1000px; /*Width of each panel holding each content. If removed, widths should be individually defined on each content DIV then. */
+}
+
+span.paginatecircle{ /* CSS for paginate circle spans. Required */
+background: white;
+border-radius: 10px;
+width: 6px;
+height: 6px;
+cursor: pointer;
+display: inline-block;
+margin-right: 4px;
+}
+
+span.paginatecircle:hover{
+background: gray;
+}
+
+span.paginatecircle.selected{
+background: black;
+}
+</style>
+ 
+ <script>
+ stepcarousel.setup({
+	 galleryid: 'mygallery', //id of carousel DIV
+	 beltclass: 'belt', //class of inner "belt" DIV containing all the panel DIVs
+	 panelclass: 'panel', //class of panel DIVs each holding content
+	 autostep: {enable:true, moveby:1, pause:3000},
+	 panelbehavior: {speed:500, wraparound:true, wrapbehavior:'slide', persist:true},
+	 defaultbuttons: {enable: true, moveby: 1, leftnav: ['/assets/bampict/arrow_left.png', -5, 80], rightnav: ['/assets/bamstuff/arrow_right.png', -10, 80]},
+	 statusvars: ['statusA', 'statusB', 'statusC'], //register 3 variables that contain current panel (start), current panel (last), and total panels
+	 contenttype: ['inline'] //content setting ['inline'] or ['ajax', 'path_to_external_file']
+})
+
+ </script>
+
+
+<div id="wrapper">
+	<section>
+	  
+	<div id = "content">
+        
+      <div id="mygallery" class="stepcarousel">
+        
+      <div class="belt">
+
+        <div class="panel">
+        <img src="/assets/newborn/newborn1.jpg" />
+        </div>
+
+        <div class="panel">
+        <img src="/assets/newborn/newborn2.jpg" />
+        </div>
+
+        <div class="panel">
+        <img src="/assets/newborn/newborn3.jpg" />
+        </div>
+        
+        <div class="panel">
+        <img src="/assets/newborn/DSC_1144.jpg" />
+        </div>
+        
+        <div class="panel">
+        <img src="/assets/newborn/newborn5.jpg" />
+        </div>
+
+        <div class="panel">
+        <img src="/assets/newborn/DSC_2299.jpg" />
+        </div>
+
+        <div class="panel">
+        <img src="/assets/newborn/DSC_2347.jpg" />
+        </div>
+
+      </div>
+       </div>
+    </div>
+	</div>
+   <div>
+	   <p id="mygallery-paginate"><span class="paginatecircle" data-moveby="1"></span></p>
+    <p class="samplebuttons">
+    <a href="javascript:stepcarousel.stepBy('mygallery', -1)"></a> <a href="javascript:stepcarousel.stepBy('mygallery', 1)" style="margin-left: 80px"></a> <br />
+    <a href="javascript:stepcarousel.stepTo('mygallery', 1)"></a> <a href="javascript:stepcarousel.stepBy('mygallery', 2)" style="margin-left: 80px"></a>
+    </p>
+    <p>
+    <a href="javascript:stepcarousel.stepBy('mygallery', -1)"></a> <a href="javascript:stepcarousel.stepBy('mygallery', 1)" style="margin-left: 80px"></a> <br />
+    <a href="javascript:stepcarousel.stepTo('mygallery', 1)"></a> <a href="javascript:stepcarousel.stepBy('mygallery', 2)" style="margin-left: 80px"></a>
+    </p>
+   
+   </div>   
+   </section>
+<%= yield %>
+</body>      

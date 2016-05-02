@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
-devise_for :admins 
+  root :to => 'site#home'
+  
+  devise_for :admins 
+  
   get "site/about"
   get "site/contact"
   get "site/portfolio"
@@ -21,8 +24,12 @@ devise_for :admins
   get '/gallery_children' =>'site#gallery_children'
   get '/gallery_maternity' =>'site#gallery_maternity'
   get '/gallery_newborns' =>'site#gallery_newborns'
-  get '/homeslider' => 'site#homeslider'
-
+  get '/gallery' => 'site#gallery'
+  
+ 
+  resources :photos
+  
+ 
 
  get "users/mailer"
  get 'orderitems/index'
@@ -37,48 +44,33 @@ devise_for :users do
     resources :orders
 end
 
- get "/login" => "devise/sessions#new"
- get "/register" => "devise/registrations#new"
- get "/users/sign_out" => "devise/sessions#destroy"
+ #get "/login" => "devise/sessions#new"
+ #get "/register" => "devise/registrations#new"
+ #get "/users/sign_out" => "devise/sessions#destroy"
 
  resources :orders do
   resources :orderitems  
 end
   
  get "cart/index"
-
+resources :users
  resources :items
+ 
  get '/cart' => 'cart#index'
+ get 'cart/clear' => 'cart#clearCart'
+ 
  get '/cart/:id' => 'cart#add'
  get "/cart/:id" => "create#Order"
  get '/cart/remove/:id' => 'cart#remove'
- get '/clearCart' => 'cart#clearCart'
+ 
  get '/checkout' => 'cart#controller'
  get '/checkout' => 'cart#createOrder'
-  
-   
  get '/Admin' => 'user#admin_login'
+ #get '/logout' => 'user#logout'
   
- get '/logout' => 'user#logout'
-  
- root :to => 'site#home'
+ 
  
 
 end
-
-
-
-
-
-
-
-
- 
-  
-  
-
-   
-
-
 
 

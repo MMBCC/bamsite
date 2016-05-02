@@ -22,4 +22,5 @@ class UsersController < ApplicationController
         sign_out :user
         redirect_to root_path
     end
+    
 end

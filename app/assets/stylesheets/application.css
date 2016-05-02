@@ -224,13 +224,55 @@ div.desc {
 /**********************
 PAGE: ABOUT
 **********************/
-.profile-photo {
+#about {
+    width: 500px;
+    margin-left: 100px;
+}
+#about .imgContainer { 
+       display: block;
+      max-width: 25%;
+      margin: 0 auto 30px;
+      padding-left: 150px;
+      padding-top: 100px;
+    
+}
+#about .textContainer {
+    max-width:75%; 
+    margin-left: 220px;
+    float: right;
+    
+    
+
+}
+/*.about {
+    width: 400px;
+    border: 4px solid red;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.about photo {
+    margin-right: 15px;
+    float: left;
+}
+
+/*.profile-photo {
   display: block;
   max-width: 25%;
   margin: 0 auto 30px;
   padding-left: 150px;
+  padding-top: 100px;
 }
 
+#text-block{
+    display: block;
+    max-width: 75%;
+    margin: 0 auto 30px;
+    padding-top: 0;
+    padding-right: 150px;
+    padding-bottom:200px;
+}
+*/
 
 
 /**********************

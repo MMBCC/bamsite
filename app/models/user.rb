@@ -9,5 +9,6 @@ class User < ActiveRecord::Base
     has_many :orders
     has_many :items
     has_many :photos
+    belongs_to :users
 
 end

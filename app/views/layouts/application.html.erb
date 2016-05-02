@@ -19,6 +19,15 @@
       <a href="home.html" id="logo">
         <img src="/assets/bampict/BAM_logogrey.png" alt="mainpicture">
       </a>
+		  <a href="/cart/index.html" align="right"><h2>Checkout</h2></a>
+      <form target="paypal" align = "right" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+	        <input type="hidden" name="cmd" value="_cart">
+        	<input type="hidden" name="business" value="pmkohlmann@gmail.com">
+	        <input type="hidden" name="display" value="1">
+        	<input type="image" src="/assets/bampict/view-cart.png" border="0" align ="right" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+      </form>  
+      
 	  </header>
     <nav class="center">
         <ul>
@@ -27,16 +36,13 @@
 	        <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="client.html">Your Photos</li>
-         
-        
-          <% if user_signed_in? %>
+         <% if user_signed_in? %>
           <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-         
-          <% else %>
+         <% else %>
           <%= link_to "Sign in", new_user_session_path %><br>
           <%= link_to 'Sign up', new_user_registration_path %><br>
           <% end %>
-        </ul>
+          </ul>
       </nav>
 <body>
     

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   get "site/about"
   get "site/contact"
+  get "site/contact1"
   get "site/portfolio"
   get "site/home"
   get "site/login"
@@ -25,8 +26,9 @@ Rails.application.routes.draw do
   get '/gallery_maternity' =>'site#gallery_maternity'
   get '/gallery_newborns' =>'site#gallery_newborns'
   get '/gallery' => 'site#gallery'
+  get '/contact1' => 'site#contact1'
+  #get '/login' => '/users/sign_in'
   
- 
   resources :photos
   
  
@@ -44,8 +46,9 @@ devise_for :users do
     resources :orders
 end
 
- #get "/login" => "devise/sessions#new"
- #get "/register" => "devise/registrations#new"
+ 
+ #get "/login" => "users/sessions#new"
+ get "/register" => "users/registrations#new"
  #get "/users/sign_out" => "devise/sessions#destroy"
 
  resources :orders do

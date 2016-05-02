@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-before_filter :authenticate_user!
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -25,7 +24,7 @@ before_filter :authenticate_user!
   # POST /items
   # POST /items.json
   def create
-    @photo = Photo.new(item_params)
+    @photo = Photo.new(photo_params)
 
     respond_to do |format|
       if @photo.save
@@ -42,7 +41,7 @@ before_filter :authenticate_user!
   # PATCH/PUT /items/1.json
   def update
     respond_to do |format|
-      if @photo.update(item_params)
+      if @photo.update(photo_params)
         format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
         format.json { render :show, status: :ok, location: @photo }
       else
@@ -57,7 +56,7 @@ before_filter :authenticate_user!
   def destroy
     @photo.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Photo was successfully destroyed.' }
+      format.html { redirect_to photos_url, notice: 'Photo was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,7 +68,7 @@ before_filter :authenticate_user!
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:photo).permit(:user, :event, :description, :price, :image_url, :image_ref)
+    def photo_params
+      params.require(:photo).permit(:user_id, :event, :description, :price, :image_url, :image_ref)
     end
 end

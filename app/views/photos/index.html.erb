@@ -4,15 +4,10 @@
 <% @photos.each do |photo| %>
 
 <tr>
-   <td> 
-   <div class="image">
-        <%= link_to (image_tag photo.image_url, :style => "height:100px"), item %>
-   </div>
-   </td>
-    
+   
    <td>   
        <div class="user">
-        <%= photo.user %>
+        <%= photo.user.id %>
       </div>  
 
       <div class ="event">
@@ -27,6 +22,10 @@
          <%= photo.price %>
       </div>
       
+      <div class ="photo.image_url">
+          <% photo.image_url %>
+      </div>
+      
       <div class ="photo.image_ref">
         <%= photo.image_ref %>
       </div>
@@ -35,7 +34,8 @@
         <%= link_to 'Show', photo %>
         <%= link_to 'Edit', edit_photo_path(photo) %>
         <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %>      
-        <a href="/cart/<%= photo.id %>">Add to Cart</a><br><br>
+        <%= link_to 'Add to Cart', photo %>
+        
         </div>
     <% end %>
  </tr> 

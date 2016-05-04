@@ -21,12 +21,16 @@
       <div class="price">
         <%= number_to_currency(item.price, :unit => "&pound;") %>
       </div>
+          
       
       <div class="links">
         <%= link_to 'Edit', edit_item_path(item) %> |
         <%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %>
+        <%= link_to 'Add to Cart', cart_add_path %>
+     </div>
+        <td><a href="/cart/<%= item.id %>"></a>Add to Cart</a></td>
         
-      </div>
+      
     </td>
   </tr>
 

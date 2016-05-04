@@ -6,17 +6,13 @@ Rails.application.routes.draw do
   
   get "site/about"
   get "site/contact"
-  get "site/contact1"
   get "site/portfolio"
   get "site/home"
-  get "site/login"
-  get "site/register"
   get "site/client"
   get "/site/gallery_newborns"
   get "site/gallery_maternity"
   get "site/gallery_children"
-  get "site/checkout"
-
+  
   get '/about' => 'site#about'
   get '/contact' => 'site#contact'
   get '/portfolio'=>'site#portfolio'
@@ -25,9 +21,8 @@ Rails.application.routes.draw do
   get '/gallery_children' =>'site#gallery_children'
   get '/gallery_maternity' =>'site#gallery_maternity'
   get '/gallery_newborns' =>'site#gallery_newborns'
-  get '/gallery' => 'site#gallery'
-  get '/contact1' => 'site#contact1'
-  #get '/login' => '/users/sign_in'
+  get '/home_slidgallery' => 'site#home_slidgallery'
+  
   
   resources :photos
   

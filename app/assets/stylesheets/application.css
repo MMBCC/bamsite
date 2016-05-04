@@ -172,6 +172,21 @@ footer {
 /**********************
 PAGE: PORTFOLILO
 **********************/
+div.gal {
+    margin: 2px;
+    display: inline-block;
+    /*float: left;*/
+     width: 12.5%;
+}	
+
+div.gal:hover {
+	background-color: #FFE4E1;
+}
+
+div.gal img {
+    width: 100%;
+   height: auto;
+}
 
 div.img {
     margin: 2px;

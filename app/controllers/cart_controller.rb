@@ -1,39 +1,54 @@
 class CartController < ApplicationController
-     def add
-     puts "testing \n\n\n"
-     id = params[:id]
-        
-     cart = session[:cart] ||= {}
-     cart[id] = (cart[id] || 0) + 1
-
+ before_action :authenticate_user!, except: [:index]
+    
+    def add
+      puts "testing \n\n\n"
+      id = params[:id]
+      if session[:cart] then
+      cart = session[:cart]
+      else
+      session[:cart] = {}
+      cart = session[:cart]
+      end
+      if cart[id] then
+        cart[id] = cart[id]+1
+      else
+        cart[id] = 1
+      end
+      redirect_to :action => :index
+    end 
+    
+    def clearCart
      redirect_to :action => :index
-     end    
+    end
     
     def index
-     @cart = session[:cart] || {}
-    end
+     if session[:cart] then
+      @cart = session[:cart]
+     else
+      @cart = {}
+     end
+    end 
     
     def show
     end
     
-         
-     #redirect_to :action => :index
+    #redirect_to :action => :index
     
-
-    def change
-    cart = session[:cart]
-    id = params[:id];
-    quantity = params[:quantity].to_i   
+   def change
+      cart = session[:cart]
+      id = params[:id];
+      quantity = params[:quantity].to_i   
      if cart and cart[id]
       unless quantity <= 0
        cart[id] = quantity
-      else
+     end  
+     else
        cart.delete id
-      end
-     end 
-     redirect_to :action => :index
-    end
-
+         redirect_to :action => :index
+     end   
+   end
+    
     def checkout
       flash[:notice] = "CHECKOUT IS NOT IMPLEMENTED YET!!!"
       redirect_to :action => :index
@@ -53,7 +68,7 @@ class CartController < ApplicationController
     end
 
 
-    def createOrder
+   def createOrder
       # Step 1: Get the current user
       @user = User.find(current_user.id)
       
@@ -66,8 +81,8 @@ class CartController < ApplicationController
       @cart.each do | id, quantity |
        item = Item.find_by_id(id)
        @orderitem = @order.orderitems.build(:item_id => item.id, :title =>
-item.title, :description => item.description, :quantity => quantity, :price  => item.price)
+       item.title, :description => item.description, :quantity => quantity, :price  => item.price)
        @orderitem.save
     end
-    end 
-end           
+   end 
+end         

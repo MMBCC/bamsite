@@ -1,5 +1,5 @@
 class SiteController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:client]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   def about
   end

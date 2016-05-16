@@ -5,10 +5,7 @@
 
 <tr>
    
-   <td>   
-       <div class="user">
-        <%= photo.user.id %>
-      </div>  
+    
 
       <div class ="event">
          <%= photo.event %>
@@ -33,10 +30,9 @@
       <div class ="links">
         <%= link_to 'Show', photo %>
         <%= link_to 'Edit', edit_photo_path(photo) %>
-        <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %>      
-        <%= link_to 'Add to Cart', photo %>
-        
-        </div>
+        <%= link_to 'Destroy', photo, :confirm => 'Are you sure?', :method => :delete %>
+      <td><a href="/cart/<%= photo.id %>">Add to Cart</a></td>
+     </div>
     <% end %>
  </tr> 
 </table>

@@ -4,17 +4,17 @@ class CartController < ApplicationController
     def add
       puts "testing \n\n\n"
       id = params[:id]
-      if session[:cart] then
-      cart = session[:cart]
-      else
-      session[:cart] = {}
-      cart = session[:cart]
-      end
-      if cart[id] then
-        cart[id] = cart[id]+1
-      else
-        cart[id] = 1
-      end
+        if session[:cart] then
+           cart = session[:cart]
+        else
+           session[:cart] = {}
+           cart = session[:cart]
+        end
+        if cart[id] then
+           cart[id] = cart[id] + 1
+        else
+           cart[id] = 1
+        end
       redirect_to :action => :index
     end 
     
@@ -35,19 +35,19 @@ class CartController < ApplicationController
     
     #redirect_to :action => :index
     
-   def change
-      cart = session[:cart]
-      id = params[:id];
-      quantity = params[:quantity].to_i   
-     if cart and cart[id]
+    def change
+       cart = session[:cart]
+       id = params[:id];
+       quantity = params[:quantity].to_i   
+      if cart and cart[id]
       unless quantity <= 0
        cart[id] = quantity
-     end  
-     else
+      end  
+      else
        cart.delete id
          redirect_to :action => :index
-     end   
-   end
+      end   
+    end
     
     def checkout
       flash[:notice] = "CHECKOUT IS NOT IMPLEMENTED YET!!!"

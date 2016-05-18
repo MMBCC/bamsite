@@ -54,6 +54,10 @@ end
 resources :users
  resources :items
  
+ authenticated :user do
+  root 'items#index', as: "authenticated_root"
+ end 
+ 
  get '/cart' => 'cart#index'
  get 'cart/clear' => 'cart#clearCart'
  

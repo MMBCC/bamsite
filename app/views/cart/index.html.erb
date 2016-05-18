@@ -27,11 +27,13 @@
       
     <td class="title"><%= link_to item.title, item %></td>
     <td class="price"><%= number_to_currency(item.price) %></td>
+    <br> 
     <td class="quantity"><%= quantity %><br /></td>
+    
     <td class="price"><%= number_to_currency(quantity * item.price, :unit => "€") %></td>
     <td><a href="/cart/remove/<%= item.id %>">Remove from Cart</a></td>
     </tr>
-    <% total += quantity * item.price %>
+    <p><b><% total += quantity * item.price %></b></p>
     <% end %>
     
     <tr>
@@ -55,10 +57,16 @@
     <input type="hidden" name="currency_code" value="EUR">
     <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
     <br>
-    <input type="image" src="/assets/bampict/add-to-cart.jpg" align = "left" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <form target="paypal" align = "left" action="https://www.paypal.com/cgi-bin/webscr" method="post" > 
+    <input type="hidden" name="cmd" value="_cart">
+    <input type="hidden" name="business" value="pmkohlmann@gmail.com">
+	<input type="hidden" name="display" value="1">
+    <input type="image" src="/assets/bampict/view-cart.png" border="0" align ="left" name="submit" alt="PayPal - The safer, easier way to pay online!">
     <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-    </form>
-
+    </form>  
+      
+    
+    
     <p>
     <%= link_to 'Continue Shopping', :controller => :items %>
     <br>

@@ -1,44 +1,40 @@
-	
-	<div id ="wrapper">
-	<h1>Your photos..</h1>
-	
-	<form target="paypal" align="center" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-	<input type="hidden" name="cmd" value="_cart">
-	<input type="hidden" name="business" value="pmkohlmann@gmail.com">
-	<input type="hidden" name="lc" value="IE">
-	<a href ="client.html"><img src="/assets/newborn/thumb100x100DSC_7332.jpg"alt = "newborn"></a>
-	<input type="hidden" name="item_name" value="add to cart">
-	<input type="hidden" name="item_number" value="004">
-	<input type="hidden" name="amount" value="20.00">
-	<input type="hidden" name="currency_code" value="EUR">
-	<input type="hidden" name="button_subtype" value="products">
-	<input type="hidden" name="no_note" value="0">
-	<input type="hidden" name="add" value="1">
-	<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
-	<input type="image" src="/assets/bampict/add-to-cart.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-	<br>
-	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-	</form>
-	
-	<form target="paypal" align="center" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
-	<input type="hidden" name="cmd" value="_cart">
-	<input type="hidden" name="business" value="pmkohlmann@gmail.com">
-	<input type="hidden" name="lc" value="IE">
-	<a href ="client.html"><img src="/assets/newborn/thumb100x100DSC_2347.png"alt = "newborn"></a>
-	<input type="hidden" name="item_name" value="add to cart">
-	<input type="hidden" name="item_number" value="004">
-	<input type="hidden" name="amount" value="20.00">
-	<input type="hidden" name="currency_code" value="EUR">
-	<input type="hidden" name="button_subtype" value="products">
-	<input type="hidden" name="no_note" value="0">
-	<input type="hidden" name="add" value="1">
-	<input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_SM.gif:NonHostedGuest">
-	<input type="image" src="/assets/bampict/add-to-cart.jpg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-	<br>
-	<br>
-	<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-	</form>
-	<br>
-  	<br>
-  	</div>
+<h1>Photos & Frames</h1>
+<table class="catalog">
 
+<% @items.each do |item| %>
+  
+  <tr>
+    <td>
+      <div class="image">
+        <%= link_to (image_tag item.image_url, :style => "height:100px"), item %>
+      </div>
+      
+  </td>
+    <td>
+      <div class="title">
+        <%= link_to item.title, item %>
+      </div>
+      
+      <div class="description">
+        <%=h item.description %>
+      </div>
+
+      <div class="price">
+        <%= number_to_currency(item.price, :unit => "&pound;") %>
+      </div>
+          
+     	<td><a href="/cart/<%= item.id %>">Add to Cart</a></td>
+        
+      
+    </td>
+  </tr>
+
+<% end %>
+</table>
+<p><%= link_to 'New item', new_item_path %></p>
+
+
+<p id="notice"><%= notice %></p>
+
+</body>
+</html>	

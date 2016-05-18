@@ -17,12 +17,12 @@ Rails.application.routes.draw do
   get '/contact' => 'site#contact'
   get '/portfolio'=>'site#portfolio'
   get '/home' =>'site#home'
-  get '/client' => 'site#client'
+  #get '/client' => 'site#client'
   get '/gallery_children' =>'site#gallery_children'
   get '/gallery_maternity' =>'site#gallery_maternity'
   get '/gallery_newborns' =>'site#gallery_newborns'
   get '/home_slidgallery' => 'site#home_slidgallery'
-  
+  get '/client' => 'items#index'
   
   resources :photos
   

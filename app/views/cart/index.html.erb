@@ -7,17 +7,25 @@
 <% total = 0 %>
 
 <table class="cart">
+  <thead>
     <tr>
-        <td class="legend"></td>
-        <td class="legend">Photo</td><br>
-        <td class="legend">Price</td><br>
-        <td class="legend">Qty</td><br>
-        <td class="legend">Total</td><br>
+        <th scope="col" id="name">Title</th>
+        <td> &nbsp </td>
+        <th scope="col" id="name">Description</th>
+        <th scope="col" id="name"> Quantity</th>
+        <th scope="col" id="company">Price</th>
     </tr>
+    </thead>
+</table>
+    
+<table> 
      <% @cart.each do | id, quantity | %>
      <% item = Item.find_by_id(id) %>
-    <tr>
-    <td class="price"><%= number_to_currency(item.price) %></td>
+   <tr>
+    <td class= "title"><%= item.title %></td>
+    <td class= "description"><%= item.description %></td>
+    <td class= "image"><%= link_to (image_tag item.image_url, :style => "height:100px"), item %>
+    <td class= "price"><%= number_to_currency(item.price, :unit => "€") %></td>
     <br> 
     <td class="quantity"><%= quantity %><br /></td>
     
@@ -37,26 +45,6 @@
     </tr>
 
 </table>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-    <input type="hidden" name="cmd" value="_xclick">
-    <input type="hidden" name="business" value="pmkohlmann@gmail.com">
-    <input type="hidden" name="lc" value="US">
-    <input type="hidden" name="item_name" value="Prints">
-    <input type="hidden" name="item_number" value="1">
-    <input type="hidden" name="button_subtype" value="services">
-    <input type="hidden" name="no_note" value="0">
-    <input type="hidden" name="currency_code" value="EUR">
-    <input type="hidden" name="bn" value="PP-BuyNowBF:btn_buynowCC_LG.gif:NonHostedGuest">
-    <br>
-    <form target="paypal" align = "left" action="https://www.paypal.com/cgi-bin/webscr" method="post" > 
-    <input type="hidden" name="cmd" value="_cart">
-    <input type="hidden" name="business" value="pmkohlmann@gmail.com">
-	<input type="hidden" name="display" value="1">
-    <input type="image" src="/assets/bampict/view-cart.png" border="0" align ="left" name="submit" alt="PayPal - The safer, easier way to pay online!">
-    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-    </form>  
-      
-    
     
     <p>
     <%= link_to 'Continue Shopping', :controller => :items %>

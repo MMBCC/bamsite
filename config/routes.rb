@@ -24,10 +24,7 @@ Rails.application.routes.draw do
   get '/home_slidgallery' => 'site#home_slidgallery'
   get '/client' => 'items#index'
   
-  resources :photos
-  
  
-
  get "users/mailer"
  get 'orderitems/index'
  get 'orderitems/show'
@@ -62,6 +59,7 @@ resources :users
  get 'cart/clear' => 'cart#clearCart'
  
  get '/cart/:id' => 'cart#add'
+ post '/add_to_cart/:product_id' => 'cart#add_to_cart', :as => 'add_to_cart'
  get "/cart/:id" => "create#Order"
  get '/cart/remove/:id' => 'cart#remove'
  

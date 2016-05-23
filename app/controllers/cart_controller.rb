@@ -1,5 +1,11 @@
 class CartController < ApplicationController
  before_action :authenticate_user!, except: [:index]
+   
+    def add_to_cart
+  current_cart.add_item(params[:item_id])
+     redirect_to :action => :index
+    end
+    
     
     def add
       puts "testing \n\n\n"
